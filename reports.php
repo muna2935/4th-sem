@@ -22,11 +22,6 @@ function rs($x)
 {
     return 'Rs. ' . number_format((float)$x, 2);
 }
-
-/* =========================
-   SUMMARY
-========================= */
-
 $totalCustomers = 0;
 $totalProducts  = 0;
 $totalBills     = 0;
@@ -63,12 +58,6 @@ if ($r = $conn->query("
 }
 
 $totalDue = max(0, $totalRevenue - $totalPayments);
-
-
-/* =========================
-   DAILY SALES
-========================= */
-
 $daily = [];
 
 $sql = "
@@ -114,12 +103,6 @@ if ($r = $conn->query($sql)) {
         $daily[] = $x;
     }
 }
-
-
-/* =========================
-   RECENT BILLS
-========================= */
-
 $recent = [];
 
 $sql = "
@@ -160,12 +143,6 @@ if ($r = $conn->query($sql)) {
         $recent[] = $x;
     }
 }
-
-
-/* =========================
-   CUSTOMER REPORT
-========================= */
-
 $customerRows = [];
 
 if ($report === 'customers') {
@@ -229,12 +206,6 @@ if ($report === 'customers') {
         }
     }
 }
-
-
-/* =========================
-   BILL REPORT
-========================= */
-
 $billRows = [];
 $grandTotal = 0;
 
@@ -303,12 +274,6 @@ if ($report === 'bills') {
         }
     }
 }
-
-
-/* =========================
-   PAYMENT REPORT
-========================= */
-
 $paymentRows = [];
 $paymentTotal = 0;
 
@@ -367,12 +332,6 @@ if ($report === 'payments') {
         }
     }
 }
-
-
-/* =========================
-   DUE REPORT
-========================= */
-
 $dueRows = [];
 $dueTotal = 0;
 
@@ -426,12 +385,6 @@ if ($report === 'due') {
         }
     }
 }
-
-
-/* =========================
-   PRODUCT REPORT
-========================= */
-
 $productRows = [];
 $stockValue = 0;
 
@@ -464,12 +417,6 @@ if ($report === 'products') {
         }
     }
 }
-
-
-/* =========================
-   SALES REPORT
-========================= */
-
 $salesRows = [];
 $salesTotal = 0;
 
@@ -528,11 +475,6 @@ if ($report === 'sales') {
         }
     }
 }
-
-
-/* =========================
-   MONTHLY REPORT
-========================= */
 
 $monthlyRows = [];
 
@@ -609,9 +551,6 @@ body{
     background:#f3f6fb;
     color:#1f2937;
 }
-
-/* SIDEBAR */
-
 .sidebar{
     position:fixed;
     left:0;
@@ -660,8 +599,6 @@ body{
     text-align:center;
 }
 
-/* MAIN */
-
 .main{
     margin-left:240px;
     min-height:100vh;
@@ -704,8 +641,6 @@ body{
     margin:0;
     color:#64748b;
 }
-
-/* CARDS */
 
 .cards{
     display:grid;
@@ -763,9 +698,6 @@ body{
     margin-bottom:20px;
     box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
-
-/* TABS */
-
 .tabs{
     display:flex;
     overflow-x:auto;
@@ -788,8 +720,6 @@ body{
     color:#1674c9;
     border-bottom-color:#1674c9;
 }
-
-/* FILTER */
 
 .filters{
     display:flex;
@@ -890,8 +820,6 @@ tr:hover td{
     background:#f8fafc;
 }
 
-/* STATUS */
-
 .status{
     display:inline-block;
     padding:5px 10px;
@@ -915,8 +843,6 @@ tr:hover td{
     color:#718096;
     padding:25px;
 }
-
-/* TWO COLUMNS */
 
 .grid2{
     display:grid;
@@ -969,8 +895,6 @@ tr:hover td{
     padding:20px;
 }
 
-/* RESPONSIVE */
-
 @media(max-width:1000px){
 
     .cards{
@@ -1001,8 +925,6 @@ tr:hover td{
     }
 }
 
-/* PRINT */
-
 @media print{
 
     .sidebar,
@@ -1027,8 +949,6 @@ tr:hover td{
 </head>
 
 <body>
-
-<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
@@ -1086,9 +1006,6 @@ tr:hover td{
 </nav>
 
 </aside>
-
-
-<!-- MAIN -->
 
 <main class="main">
 
